@@ -1,6 +1,6 @@
 package com.amitpamecha.positionallist;
 
-public interface Position<E> {
+public interface IPosition<E> {
 	
 	E getElement() throws IllegalStateException;
 

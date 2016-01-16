@@ -6,12 +6,12 @@ package com.amitpamecha.positionallist;
  *
  * @param <E>
  */
-public class LinkedPositionalList<E> implements PositionalList<E> {
+public class LinkedPositionalList<E> implements IPositionalList<E> {
 
 	/*
 	 * nested node class 
 	 */
-	private static class Node<E> implements Position<E>{
+	private static class Node<E> implements IPosition<E>{
 
 		private E element;
 		
@@ -70,51 +70,51 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 	}
 
 	@Override
-	public Position<E> fist() {
+	public IPosition<E> fist() {
 		return header.getNext();
 	}
 
 	@Override
-	public Position<E> last() {
+	public IPosition<E> last() {
 		return trailer.getPrev();
 	}
 
 	@Override
-	public Position<E> addFist(E e) {
+	public IPosition<E> addFist(E e) {
 		return addBetween(e, header, header.getNext());
 	}
 
 	@Override
-	public Position<E> addLast(E e) {
+	public IPosition<E> addLast(E e) {
 		return addBetween(e, trailer.getPrev(), trailer);
 	}
 
 	@Override
-	public Position<E> before(Position<E> p) throws IllegalArgumentException {
+	public IPosition<E> before(IPosition<E> p) throws IllegalArgumentException {
 		Node<E> node=validate(p);
 		return node.getPrev();
 	}
 
 	@Override
-	public Position<E> after(Position<E> p) throws IllegalArgumentException {
+	public IPosition<E> after(IPosition<E> p) throws IllegalArgumentException {
 		Node<E> node = validate(p);
 		return node.getNext();
 	}
 
 	@Override
-	public Position<E> addBefore(Position<E> p, E e) throws IllegalArgumentException {
+	public IPosition<E> addBefore(IPosition<E> p, E e) throws IllegalArgumentException {
 		Node<E> node = validate(p);
 		return addBetween(e, node.getPrev(), node);
 	}
 
 	@Override
-	public Position<E> addAfter(Position<E> p, E e) throws IllegalArgumentException {
+	public IPosition<E> addAfter(IPosition<E> p, E e) throws IllegalArgumentException {
 		Node<E> node = validate(p);
 		return addBetween(e, node, node.getNext());
 	}
 
 	@Override
-	public E set(Position<E> p, E e) throws IllegalArgumentException {
+	public E set(IPosition<E> p, E e) throws IllegalArgumentException {
 		Node<E> node = validate(p);
 		E oldValue = node.getElement();
 		node.setElement(e);
@@ -122,7 +122,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 	}
 
 	@Override
-	public E remove(Position<E> p) throws IllegalArgumentException {
+	public E remove(IPosition<E> p) throws IllegalArgumentException {
 		Node<E> node = validate(p);
 		E oldValue = node.getElement();
 		Node<E> prevNode = node.getPrev();
@@ -136,7 +136,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 		return oldValue;
 	}
 	
-	private Position<E> addBetween(E e, Node<E> prev, Node<E> next) throws IllegalArgumentException{
+	private IPosition<E> addBetween(E e, Node<E> prev, Node<E> next) throws IllegalArgumentException{
 		Node<E> newNode = new Node<E>(e, prev, next);
 		prev.setNext(newNode);
 		next.setPrev(newNode);
@@ -145,7 +145,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 		
 	}
 	
-	private Node<E> validate(Position<E> p) throws IllegalArgumentException{
+	private Node<E> validate(IPosition<E> p) throws IllegalArgumentException{
 		if(!(p instanceof Node)){
 			throw new IllegalArgumentException("Not a valid position");
 		}
