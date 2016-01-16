@@ -9,6 +9,6 @@ public interface ICircularLinkedList<E> {
 		public void addFirst(E e);
 		public void addLast(E e);
 		public E removeFirst();
-		public void roate();
+		public void rotate();
 
 }

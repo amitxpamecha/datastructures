@@ -94,7 +94,7 @@ public class CircularLinkedList<E> implements ICircularLinkedList<E> {
 	}
 
 	@Override
-	public void roate() {
+	public void rotate() {
 		if(tail!=null){
 			this.tail=tail.getNext();
 		}
