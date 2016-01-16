@@ -1,8 +1,10 @@
 package com.amitpamecha.stack;
 
+import com.amitpamecha.singlylinkedlist.SinglyLinkedList;
+
 public class LinkedStack<E> implements IStack<E> {
 
-	private E data=new LinkedStack<E>();
+	private SinglyLinkedList<E> data=new SinglyLinkedList<E>();
 	
 	public LinkedStack(){
 		
