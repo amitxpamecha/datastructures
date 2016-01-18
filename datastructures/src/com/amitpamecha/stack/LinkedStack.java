@@ -11,32 +11,28 @@ public class LinkedStack<E> implements IStack<E> {
 	}
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return data.size();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return data.isEmpty();
 	}
 
 	@Override
 	public void push(E e) throws IllegalStateException {
-		// TODO Auto-generated method stub
+		data.addFirst(e);
 		
 	}
 
 	@Override
 	public E pop() {
-		// TODO Auto-generated method stub
-		return null;
+		return data.removeFirst();
 	}
 
 	@Override
 	public E top() {
-		// TODO Auto-generated method stub
-		return null;
+		return data.first();
 	}
 
 }
