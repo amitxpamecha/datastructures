@@ -37,5 +37,12 @@ public interface ITree<E> extends Iterable<E> {
 	int depth(IPosition<E> p);
 	
 	int height(IPosition<E> p);
+	
+	Iterable<IPosition<E>> preorder();
+	
+	Iterable<IPosition<E>> postorder();
+	
+	Iterable<IPosition<E>> breadthfirst();
+	
 
 }

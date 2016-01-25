@@ -121,18 +121,6 @@ public class LinkedBinaryTree<E> extends AbstractTree<E> implements IBinaryTree<
 	}
 
 	@Override
-	public Iterator<E> iterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Iterable<IPosition<E>> positions() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public IPosition<E> left(IPosition<E> p) throws IllegalArgumentException {
 		Node<E> node = validate(p);
 		return node.getLeft();
@@ -246,5 +234,26 @@ public class LinkedBinaryTree<E> extends AbstractTree<E> implements IBinaryTree<
 		node.setRight(null);
 		node.setParent(null);
 		return temp;
+	}
+	
+	/**
+	 * This method returns an iterable container of the positions of the tree, reported in inorder.
+	 */
+	public Iterable<IPosition<E>> inorder(){
+		List<IPosition<E>> snapshot = new ArrayList<IPosition<E>>();
+		if(!isEmpty()){
+			inorderSubTree(root(), snapshot);
+		}
+		return snapshot;
+	}
+	
+	private void inorderSubTree(IPosition<E> node, List<IPosition<E>> snapshot){
+		if(left(node)!=null){
+			inorderSubTree(left(node), snapshot);
+		}
+		snapshot.add(node);
+		if(right(node)!=null){
+			inorderSubTree(right(node), snapshot);
+		}
 	}
 }
