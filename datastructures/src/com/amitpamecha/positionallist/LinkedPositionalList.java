@@ -70,7 +70,7 @@ public class LinkedPositionalList<E> implements IPositionalList<E> {
 	}
 
 	@Override
-	public IPosition<E> fist() {
+	public IPosition<E> first() {
 		return header.getNext();
 	}
 
@@ -80,7 +80,7 @@ public class LinkedPositionalList<E> implements IPositionalList<E> {
 	}
 
 	@Override
-	public IPosition<E> addFist(E e) {
+	public IPosition<E> addFirst(E e) {
 		return addBetween(e, header, header.getNext());
 	}
 
@@ -156,5 +156,4 @@ public class LinkedPositionalList<E> implements IPositionalList<E> {
 		return node;
 	}
 	
-
 }

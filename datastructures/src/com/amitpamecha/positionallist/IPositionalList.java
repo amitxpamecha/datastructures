@@ -6,11 +6,11 @@ public interface IPositionalList<E> {
 	
 	boolean isEmpty();
 	
-	IPosition<E> fist();
+	IPosition<E> first();
 	
 	IPosition<E> last();
 	
-	IPosition<E> addFist(E e);
+	IPosition<E> addFirst(E e);
 	
 	IPosition<E> addLast(E e);
 	

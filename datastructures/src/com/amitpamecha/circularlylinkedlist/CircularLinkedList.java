@@ -11,7 +11,6 @@ public class CircularLinkedList<E> implements ICircularLinkedList<E> {
 	private static class Node<E>{
 		private E element;
 		private Node<E> next;
-		
 		public Node(E e, Node<E> node){
 			this.element=e;
 			this.next=node;
